@@ -4,11 +4,11 @@ public class App {
 
   public static void main(String[] args) {
     try {
-      var mode = PdfR2L.Mode.valueOf(args[0]);
-      var src = args[1];
-      var dest = args[2];
+      PdfR2L.Mode mode = PdfR2L.Mode.valueOf(args[0]);
+      String src = args[1];
+      String dest = args[2];
 
-      var converter = new PdfR2L();
+      PdfR2L converter = new PdfR2L();
       converter.convert(src, dest, mode);
     }
     catch (IllegalArgumentException e) {

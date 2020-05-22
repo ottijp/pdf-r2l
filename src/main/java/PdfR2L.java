@@ -15,15 +15,15 @@ public class PdfR2L {
 
   protected void convert(String src, String dest, Mode mode) throws IOException {
     // create dest dir
-    var destFile = new File(dest);
+    File destFile = new File(dest);
     if (destFile.getParentFile() != null) {
       destFile.getParentFile().mkdirs();
     }
 
-    var pdfDoc = new PdfDocument(new PdfReader(src), new PdfWriter(dest));
+    PdfDocument pdfDoc = new PdfDocument(new PdfReader(src), new PdfWriter(dest));
 
     // get or create view preference
-    var viewerPreferences = pdfDoc.getCatalog().getViewerPreferences();
+    PdfViewerPreferences viewerPreferences = pdfDoc.getCatalog().getViewerPreferences();
     if (viewerPreferences == null) {
       viewerPreferences = new PdfViewerPreferences();
       pdfDoc.getCatalog().setViewerPreferences(viewerPreferences);
